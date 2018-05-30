@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bootstrapadds.css">
+</head>
+
+
+<body>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+        <a class="navbar-brand" href="index.html">Alex Levitt</a></div>
+        <ul class="nav navbar-nav">
+            <li><a href="contact.html">Contact</a></li>
+            <li class="active"><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="index.html">About</a></li>
+        </ul>
+    </div>
+</nav>
+  
+
+  <div class="row">
+    <div class="container-fluid sidebar">
+    <div class="col-xs-12 col-md-4">
+        <h3>Sidebar</h3>
+        <p>This sidebar should take up the full row when the viewport is sized for mobile (xs or sm) -- and it should take up 1/3 of the screen when the viewport is m or larger. We want it to appear as a sidebar only when the viewport has enough resolution to display it alongside the main content.</p>
+        <p>eg. On xs and sm screens, each section should take up the entire grid. On m and larger screens, each section should take up 2/3 of the grid and the sidebar should take up 1/3 of the grid</p>
+    </div>
+    
+    <div class="container-fluid portfolio">   
+        <div class="col-xs-12 col-md-8">
+                <h3>Portfolio</h3>
+                    <div class="col-xs-12 col-md-6 col-lg-4" ID="project1">
+                        <img class="img-responsive project" src="assets/images/rickmorty1.jpg">
+                        <div class="ptitle">Project 1</div>
+                    </div>
+
+                    <div class="col-xs-12 col-md-6 col-lg-4" ID="project2">
+                        <img class="img-responsive project" src="assets/images/rickmorty2.jpg">
+                        <div class="ptitle">Project 2</div>
+                    </div>
+
+                    <div class="col-xs-12 col-md-6 col-lg-4" ID="project3">
+                        <img class="img-responsive project" src="assets/images/rickmorty3.jpg">
+                        <div class="ptitle">Project 3</div>
+                    </div>
+
+                    <div class="col-xs-12 col-md-6 col-lg-4" ID="project4">
+                        <img class="img-responsive project" src="assets/images/rickmorty4.png">
+                        <div class="ptitle">Project 4</div>
+                    </div>
+
+                    <div class="col-xs-12 col-md-6 col-lg-4" ID="project5">
+                        <img class="img-responsive project" src="assets/images/rickmorty5.png">
+                        <div class="ptitle">Project 5</div>
+                        <!-- Not sure why this one auto-aligns to the right when there's space... -->
+                    </div>    
+
+        </div>
+    </div>
+
+
+
+</body>
+
+<footer>
+    Copyright Alex Levitt 2018
+</footer>
+
+</html>
