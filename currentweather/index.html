@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Weather</title>
+  <title>Bujumbura Data</title>
 </head>
 
 <body>
@@ -18,7 +18,7 @@
     // This is our API key. Add your own API key between the ""
     var APIKey = "b6245666199a0bf5ac10ca7c535c5f7c";
   
-    var city = prompt("Current conditions in... what city?");
+    var city = prompt("What city?");
 
     // Here we are building the URL we need to query the database
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
@@ -39,12 +39,24 @@
       console.log(response.wind);
       console.log(response.main.humidity);
 
-          
+      if (response.wind.deg < 90) {
+      var windDirection = "NorthEast"
+      }
+      else if (180 > response.wind.deg > 90) {
+        var windDirection = "SouthEast"
+      }
+      else if (270 > response.wind.deg > 180) {
+        var windDirection = "SouthWest"
+      }
+      else {
+        var windDirection = "NorthWest"
+      }
 
+   
       // Create CODE HERE to transfer content to HTML
       $(".city").html("<h1>" + (response.name) + ": Weather Details </h1>");
       $(".windspeed").html("<h3>Wind speed: " + response.wind.speed + " MPH</h3>");
-      $(".winddir").html("<h3>Wind direction: " + response.wind.deg + " degrees</h3>");
+      $(".winddir").html("<h3>Wind direction: " + windDirection + "</h3>");
       $(".humidity").html("<h3>Humidity " + response.main.humidity + "%</h3>");
   
       // Create CODE HERE to calculate the temperature (converted from Kelvin)
