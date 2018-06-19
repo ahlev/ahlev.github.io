@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Triva Game</title>
+    <!-- CSS Files --> 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Eater" rel="stylesheet">
+</head>
+<body>
+	<header>
+        <div class ="container-fluid container-top">
+          <h1>Rick &amp; Morty Trivia</h1>
+        </div>
+    </header>
+    
+        <div id="counter">
+            <h3 id="show-number">Time Remaining: <br \>30 seconds</h3>
+        </div>
+
+    <div class="container intro-section">
+            <h4 class="rules">The Rules</h4>
+			<p class="rules">Once you click start, you will have 30 seconds to answer all 5 questions.</p>
+            <button type="button" id="start-button" class="btn btn-primary btn-lg buttons">START</button>
+		</div>
+	<div id="main-container" class="container">
+
+
+         
+        <!-- -->
+        <!-- THIS SECTION HOLDS QUESTIONS -->
+        <!-- -->
+		<section class="question-section">
+            <!-- timer will be displayed in div#show-number. 
+                Set starting value of 30 which well be replaced after one timer interval to start counting down -->
+			<!-- question 1 -->
+			<div class="question1"><p id ="question">1. What tool does Rick use to travel between dimensions and universes?</p>
+                <ul class="answers answers1">
+                    <input type="radio" name="q1" value="wrong" id="q1a"><label for="q1a">Space laser</label><br/>
+                    <input type="radio" name="q1" value="correct" id="q1b"><label for="q1b">Portal gun</label><br/>
+                    <input type="radio" name="q1" value="wrong" id="q1c"><label for="q1c">Universal remote</label><br/>
+                    <input type="radio" name="q1" value="wrong" id="q1d"><label for="q1d">Teleporter pad</label><br/>
+                </ul>
+            </div>
+
+            <!-- question 2 -->
+            <div class="question2"><p id ="question">2. What is Rick's catch phrase?</p>
+                <ul class="answers answers2">
+                    <input type="radio" name="q2" value="wrong" id="q2a"><label for="q2a">"OHHH YEAHHHHH"</label><br/>
+                    <input type="radio" name="q2" value="wrong" id="q2b"><label for="q2b">"Lock and load, lil' nellies!"</label><br/>
+                    <input type="radio" name="q2" value="correct" id="q2c"><label for="q2c">"Wubba lubba dub dubbb!"</label><br/>
+                    <input type="radio" name="q2" value="wrong" id="q2d"><label for="q2d">"Hasta la vista, baby."</label><br/>
+                </ul>
+            </div>
+            <!-- question 3-->
+            <div class="question3"><p id ="question">3. Which of Rick's good friends invited the Smith family to his wedding?</p>
+                <ul class="answers answers3">
+                    <input type="radio" name="q3" value="correct" id="q3a"><label for="q3a">Birdperson</label><br/>
+                    <input type="radio" name="q3" value="wrong" id="q3b"><label for="q3b">Gazorpazorpfield</label><br/>
+                    <input type="radio" name="q3" value="wrong" id="q3c"><label for="q3c">Unity</label><br/>
+                    <input type="radio" name="q3" value="wrong" id="q3d"><label for="q3d">Roy</label><br/>
+                </ul>
+            </div>
+
+            <div class="question4"><p id ="question">4. What career field was Jerry in before losing his job?</p>
+                <ul class="answers answers4">
+                    <input type="radio" name="q4" value="wrong" id="q4a"><label for="q4a">Construction</label><br/>
+                    <input type="radio" name="q4" value="wrong" id="q4b"><label for="q4b">Law enforcement</label><br/>
+                    <input type="radio" name="q4" value="wrong" id="q4c"><label for="q4c">Personal training</label><br/>
+                    <input type="radio" name="q4" value="correct" id="q4d"><label for="q4d">Marketing</label><br/>
+                </ul>
+            </div>
+
+
+            <div class="question5"><p id ="question">5. What fast food sauce was referenced in an episode that ultimately led to a re-release?</p>
+                <ul class="answers answers5">
+                    <input type="radio" name="q5" value="wrong" id="q5a"><label for="q5a">Big Boss Soy Soss</label><br/>
+                    <input type="radio" name="q5" value="wrong" id="q5b"><label for="q5b">BBQ Blitz</label><br/>
+                    <input type="radio" name="q5" value="correct" id="q5c"><label for="q5c">Szecheuan Sauce</label><br/>
+                    <input type="radio" name="q5" value="wrong" id="q5d"><label for="q5d">Hoppin' Honey Mustard</label><br/>
+                </ul>
+            </div>
+
+			
+			<!-- Submit Button -->
+			<button type="button" class="btn btn-primary btn-lg buttons buttons submitbutton" id="submit">Submit!</button>
+        </section>
+
+
+        <!-- -->
+        <!-- THIS SECTION HOLDS RESULTS AND RESET OPTIONS -->
+        <!-- -->
+        <div id="finished-section" class = "container">
+         
+                <h3>All Done!</h3>
+                <h5>Correct Answers: <span id="numberCorrect"></span></h5>
+                <h5>Wrong Answers: <span id="numberWrong"></span></h5>
+                <h5>Unanswered: <span id="numberUnanswered"></span></h5>
+               
+
+            <button type="button" id="restart-button" class="btn btn-primary btn-lg buttons tryagain">Try again!</button>
+      
+        <div class="reactionImage">
+                <img class="img-responsive" src="assets/images/rmt1.jpg">
+            </div>
+        </div>
+	</div>
+
+    <div class="footer">
+        	&copy; 2018 Alex Levitt
+    </footer>
+
+	<!-- JavaScript File & jQuery Lib -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.js"></script>
+	<script type="text/javascript" src="assets/javascript/app.js"></script>
+</body>
+</html>
