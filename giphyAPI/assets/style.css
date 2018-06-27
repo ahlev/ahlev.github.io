@@ -1,0 +1,106 @@
+body {
+    background-color: black;
+    align-items: center;
+    font-family: 'Lato', sans-serif;
+    margin: 10px 30px 30px 30px;
+}
+
+#button-holder {
+    margin-bottom: 10px;
+    font-family: 'Lato', sans-serif;}
+
+.container {
+    color: gold;
+    margin: 0px 30px 10px 30px;
+    text-align: center;
+}
+
+h3 {
+    color: white;
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    font-size: 22px;
+    margin-top: 8px;
+    line-height: 24px;
+    color: turquoise;
+}
+
+#results-holder {
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    margin: 0px 10px 0px 25px;
+}
+
+.giphyresult {
+    /* display: flex; */
+    /* transform: scale(1.5, 2);
+    transition-duration: .5s; */
+
+    margin: 20px 20px;
+    text-align: center;
+    color: white;
+    font-size: 17px;
+    border: 1px solid #2c2c2c;
+    background-color: black;
+}
+
+.giphyresult:hover {
+    /* display: flex; */
+    
+    transform: scale(1.4, 1.4);
+    transition-duration: .75s;
+    /* justify-content: space-around; */
+
+    margin: 20px 20px;;
+    text-align: center;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+}
+
+/* #add-topic:hover {
+    background: turquoise;
+    font-weight: bold;
+} */
+
+#topicAdd {
+    margin: 2px 0px 5px 0px;
+}
+
+.ratingtext {
+    margin: 4px 4px;
+}
+
+
+.text-form {
+    width: 200px;
+    height: 15px;
+    padding: 10px 10px 10px 10px;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+button {
+    margin: 5px 5px 5px 0px;
+    padding: 5px 5px;
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+}
+  
+button:hover {
+    margin: 5px 5px 5px 0px;
+    padding: 5px 5px;
+    background: #0089df;
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+}
+
+button:active {
+    margin: 5px 5px 5px 0px;
+    padding: 5px 5px;
+    background: goldenrod;
+    font-family: 'Lato', sans-serif; 
+    font-size: 18px;
+}
+

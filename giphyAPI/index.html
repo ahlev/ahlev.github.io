@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+</head>
+<body>
+    <div class = "container">
+        <!-- create empty div to hold buttons (will create dynamically with jQuery) -->
+        <div ID ="button-holder"></div>
+        <div class ="text-entry" ID="topicAdd" type="input">Add a new button:</div>
+        <input id= "text-entry" type="text" class="text-form"><br> <!-- how to make this work with "enter" ? -->
+        <input id="add-topic" type="submit" value="Submit">
+        <h3>Use the buttons to search GIPHY.<br /> Click on an image to toggle .gif animation.</h3>
+    </div>
+
+    <div class = "results-contianer">
+        <!-- create empty div to hold API data returns (will create dynamically with jQuery) -->
+        <div ID="results-holder"></div>
+    </div>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+    // these are strings that will be used to create our buttons, which will then be used to trigger API calls (ajax)
+    var topics = ["cat", "dog", "horse", "lion", "tiger", "elephant", "monkey", "otter", "bear", "sugar glider", "chinchilla", "gineau pig", "anteater", "antelope", "tortoise", "cobra", "dolphin", "emperor penguin", "hermit crab", "sting ray", "sloth", "vampire bat"];
+
+    // we need a function to loop through the array and create buttons
+    // will need to clear this at the start to avoid duplication
+    function renderButtons() {
+
+        // This clears the html of this div, removing pre-existing buttons to avoid duplicates
+        $("#button-holder").empty();
+
+        // create a LOOP to cycle through the array... 
+        for (var i = 0; i < topics.length; i++) {
+
+            // ..and dynamically create BUTTONS for each 
+            var topicButton = $("<button>");
+
+            // assigning class, attributes, and text to the buttons (dynamically)
+            topicButton.addClass("topic-button");
+            topicButton.attr("data-name", topics[i]);
+            topicButton.text(topics[i]);
+            
+            // append our newly-created buttons to the button-holder div 
+            $("#button-holder").append(topicButton);
+        }
+    }
+
+    $("#add-topic").on("click", function(event) {
+        event.preventDefault();
+        var topic = $("#text-entry").val().toLowerCase().trim();
+        
+        // use an IF statement with a boolean argument... only add button if text has been entered
+        if (topic) {
+            topics.push(topic) // QUESTION how to make this accept only alphabet
+        }
+        console.log(topics);
+        renderButtons();
+
+    });
+
+    // create event handler for our topic buttons to call the API and display results on click
+    
+    function displayResults() {
+        $("#results-holder").empty();
+
+        var searchTopic = $(this).attr("data-name"); // QUESTION: explain THIS better
+        var APIkey = "hD5zUt6kiRs5BqLegpownhFdU59tqweK";
+        var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=" + APIkey + "&q=" + searchTopic + "&limit=10&rating=g&rating=pg";
+        
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function(response) {
+            
+            var results = response.data;
+            console.log(results); //DEBUG ***
+           
+                for (var i = 0; i < results.length; i++) {
+
+                // QUESTION how best to style resulting layout?? does bootstrap work here? flexbox?
+                // Creating a div with the class "giphyresult"
+                    var gifDiv = $("<div class = giphyresult>");
+
+                    // Storing the result item's rating
+                    var rating = results[i].rating;
+
+                    // Creating a paragraph tag with the result item's rating
+                    var pRating = $("<div class = ratingtext>").text("Rating: " + rating.toUpperCase());
+
+                    // Creating an image object with class .gif
+                    var giphyImage = $("<img class = gif>");
+
+                    // Giving the image tag an src attribute of a proprty pulled off the result item
+                    giphyImage.attr("src", results[i].images.fixed_height_still.url);
+                    giphyImage.attr("data-animate", results[i].images.fixed_height.url);
+                    giphyImage.attr("data-still", results[i].images.fixed_height_still.url);
+                    giphyImage.attr("data-state","still");
+
+                    // Appending the paragraph and personImage we created to the "gifDiv" div we created
+                    gifDiv.append(pRating);
+                    gifDiv.append(giphyImage);
+
+                    // Prepending the gifDiv to the "#gifs-appear-here" div in the HTML
+                    $("#results-holder").prepend(gifDiv);
+                }
+
+            $(".gif").on("click", function() {
+            // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
+                var state = $(this).attr("data-state");
+                // If the clicked image's state is still, update its src attribute to what its data-animate value is.
+                // Then, set the image's data-state to animate
+                // Else set src to the data-still value
+                if (state === "still") {
+                    $(this).attr("src", $(this).attr("data-animate"));
+                    $(this).attr("data-state", "animate");
+                } else {
+                    $(this).attr("src", $(this).attr("data-still"));
+                    $(this).attr("data-state", "still");
+                    }
+            });
+        })
+    };
+
+$(document).on("click", ".topic-button", displayResults);
+renderButtons();
+
+</script>
+
+</body>
+</html>
+
+
+
+
