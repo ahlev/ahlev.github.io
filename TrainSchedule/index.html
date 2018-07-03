@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="assets/css/trainschedule.css">
+    
+    <!-- Firebase Reference -->
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+    
+    <!-- Moment.js Reference -->
+    <!-- <script src="http://momentjs.com/downloads/moment.js"></script>   -->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    
+
+
+    <title>Document</title>
+</head>
+<body>
+
+   
+        <div class="jumbotron jumbotron-fluid">
+          <h1 class="text-center">Chugga Chugga Choo Choo</h1>
+          <h3 class="text-center">Don't miss your train, dude!</h3>
+        </div>
+    
+
+    
+      <div title="This is the master train schedule. Use the form (right) to add a new train and see the dynamic calculations for a) the time of the next train, and b) how many minutes until it arrives." class="container-flex sitecontent">
+          <div class="row-fluid">
+            <div class="row justify-content-md-center">
+                    <!-- THIS IS WHERE THE SCHEDULE TABLE IS DISPLAYED-->
+                    <div class="card card-primary train-schedule-master col-sm-11 col-md-8">
+                      <div class="card-heading"><h3 class="card-title"><strong>Current Train Schedule</strong></h3></div>
+                      <div class="card-body">
+                        <table class="table table-hover table-striped" id='train-table'>
+                          <thead>
+                            <tr>
+                              <th>Train Name</th>
+                              <th>Destination</th>
+                              <th>Freq. (mins)</th>
+                              <th>Next Train</th> <!-- this variable will need math-->
+                              <th>Mins. Away</th> <!-- this variable will need math-->
+                              <!-- <th>Edit</th>
+                              <th>Remove</th> -->
+                            </tr>
+                          </thead>
+                          <tbody>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+          
+
+                    <!-- THIS IS THE CARD CONTAINING FORM
+                    FOR ADDING NEW TRAINS TO THE SCHEDULE "BOARD"-->
+                    <div class="col-sm-8 col-md-3 card card-secondary new-train-master" title="Use this form to add a train to the schedule. Fill out all fields and press submit to see the next train time and time (minutes) until it arrives.">
+                    
+                      <div class="card-heading">
+                        <h3 class="card-title"><strong>Add a New Train</strong></h3></div>
+                          <div class="card-body">
+                            <form>
+            
+                              <div class="form-group">
+                                <label for="train-name-input">TRAIN NAME</label>
+                                <input class="form-control" id="train-name-input"  placeholder="Name of train">
+                              </div>
+
+                              <div class="form-group">
+                                <label for="destination-input">DESTINATION</label>
+                                <input class="form-control" id="destination-input" placeholder="Where's it going?">
+                              </div>
+
+                              <div class="form-group">
+                                <label for="first-train-time-input">FIRST TRAIN TIME (military - 24:00)</label>
+                                <input class="form-control" id="first-train-time-input" placeholder="When does the first train leave?">
+                              </div>
+
+                              <div class="form-group">
+                                <label for="train-frequency-input">FREQUENCY (mins)</label>
+                                <input class="form-control" id="train-frequency-input" placeholder="How often does this train run?">
+                              </div>
+                            
+                              <button type="submit" class="btn btn-primary add-train-button">Submit</button>
+                              <br></br><img src="assets/images/conductor.png">
+                            </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+<div class="footer">
+  <p class="muted">	&copy; Alex Levitt (2018)</p>
+</div>
+                
+</div>
+<script src="assets/javascript/logic.js"></script>
+</body>
+
+</html>

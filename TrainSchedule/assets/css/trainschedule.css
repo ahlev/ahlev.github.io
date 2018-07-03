@@ -1,0 +1,81 @@
+body {
+    background-color: darkgray;
+    padding-bottom: 50px;
+}
+
+/* .sitecontent {
+    margin: 50px auto;
+} */
+
+.train-schedule-master {
+    margin: 0px auto;
+    padding: 20px;
+    -webkit-box-shadow: 6px 8px 37px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 6px 8px 37px -5px rgba(0,0,0,0.75);
+    box-shadow: 6px 8px 37px -5px rgba(0,0,0,0.75);
+}
+
+.jumbotron {
+    background-image: url("/assets/rickmorty_transparent.png");
+    background: linear-gradient(-110deg, midnightblue, #005f85);
+    margin-top: 20px;
+    width: 100%;
+    -webkit-box-shadow: 6px 5px 37px -4px rgba(0,0,0,0.75);
+    -moz-box-shadow: 6px 5px 37px -4px rgba(0,0,0,0.75);
+    box-shadow: 6px 5px 37px -4px rgba(0,0,0,0.75);
+    color: white;
+
+}
+
+td {
+    line-height: .8;
+    font-size: 14px;
+}
+
+.tablebuttons {
+    /* display: flex;
+justify-content: space-between; */
+    margin: 4px 2px 0px 0px;
+    font-size: 12px;
+    text-align: center;
+    position: relative;
+    height:50%;
+    vertical-align:center;
+    line-height: 50%;
+}
+
+.new-train-master {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    background-color: rgb(221, 250, 255);
+    font-weight: bold;
+    margin: 20px auto;
+    padding: 20px 0px;
+    /* margin: 30px auto; */
+    -webkit-box-shadow: 3px 3px 20px -3px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 3px 20px -3px rgba(0,0,0,0.75);
+    box-shadow: 3px 3px 20px -3px rgba(0,0,0,0.75);
+}
+
+img {
+    max-width: 50%;
+    height: auto;
+    width: auto\9; /* ie8 */
+}
+
+.footer {
+    height: 18px;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    font-size: 10px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: linear-gradient(-110deg, midnightblue, #005f85);    color: white;
+    text-align: center;
+ }
+
+/* USE FLEXBOX FOR CENTERING */
