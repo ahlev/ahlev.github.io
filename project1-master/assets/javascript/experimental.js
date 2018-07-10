@@ -82,46 +82,100 @@ function initAutocomplete() {
     }
 
 
+            // THIS SECTION CONTAINS TWO FORMATS OF AJAX CALLS
+            // BOTH WORK BUT NEITHER RESOLVES CORS issue (origin not found in Access-Control-Allow-Origin response header)
 
     var queryURL = 'https://www.coinatmfinder.com/CoimATMs-API.php'
 
-        //ajax call for ATM location data
+        // ajax call for ATM location data
         $.ajax({
             url: queryURL,
             method: "GET", 
 
         }).then(function(response) {  // When the API is called, run this function...
-
             var data = JSON.parse(response); // Parse the results nicely into JSON format
 
-
             for (var i = 0; i < data.length; i++) { // Loop through JSON and create markers at latLng
-              
                 var latLng = new google.maps.LatLng(data[i].lat, data[i].lng);
-        
                 var marker = new google.maps.Marker({
-                position: latLng,
-                map: map
+                    position: latLng,
+                    map: map
+                });
+                
+                addInfoText(marker, i);
+                }
+
+                function addInfoText(marker, i) {
+
+                    var contentString = 
+                    '<div id="content">'+
+                    '<div id="siteNotice">'+'</div>'+
+                    '<h5 id="locationInfo" class="firstInfo">' + data[i].location+ '</h5>'+
+                    '<h6 id="addressInfo" class = "secondInfo">' + data[i].address + ", " + data[i].zipcode + " " + data[i].state +'</h6>' +
+                    '<h6 id="currencyInfo" class="thirdInfo">' + "Currencies: " + data[i].currency + '</h6>' +
+                    '</div>' +
+                    '</div>';
+                
+                    var infowindow = new google.maps.InfoWindow({
+                        content: contentString
+                    })
+
+                    marker.addListener('click', function() {
+                        infowindow.open(map, marker)
                     });
+                    
+                }
+            });
+      
 
-            }
-        });
             
-
-   
+        // var xmlhttp = new XMLHttpRequest();
+        // xmlhttp.onreadystatechange = function() {
+        //     if (this.readyState == 4 && this.status == 200) {
+        //         var data = JSON.parse(this.responseText);
+            
+        //         for (var i = 0; i < data.length; i++) {
+        //             var latLng = new google.maps.LatLng(data[i].lat, data[i].lng)
+        //             console.log(latLng)
     
-    // Define the function that adds markers to the map we're creating
-    // function addMarker(coords) {
-    //     var marker = new google.maps.Marker({
-    //         position: coords,
-    //         map: map,
-    //     })
-    // }
+        //             var marker = new google.maps.Marker({
+        //                 position: latLng,
+        //                 map: map,
+        //                 title: location[i],
+        //             });
 
-    // // Define the for-loop to cycle through coords array and add markers for each lat:lng object, using the addMarker function
-    // for (var i=0; i < coords.length; i++) {
-    //     addMarker(coords[i]);
-    // }  
+        //             addInfoText(marker, i);
+        //         }
+
+        //         function addInfoText(marker, i) {
+
+        //             var contentString = 
+        //             '<div id="content">'+
+        //             '<div id="siteNotice">'+'</div>'+
+        //             '<h5 id="locationInfo" class="firstInfo">' + data[i].location+ '</h5>'+
+        //             '<h6 id="addressInfo" class = "secondInfo">' + data[i].address + ", " + data[i].zipcode + " " + data[i].state +'</h6>' +
+        //             '<h6 id="currencyInfo" class="thirdInfo">' + "Currencies: " + data[i].currency + '</h6>' +
+        //             '</div>' +
+        //             '</div>';
+                
+        //             var infowindow = new google.maps.InfoWindow({
+        //                 content: contentString
+        //             })
+
+        //             marker.addListener('click', function() {
+        //                 infowindow.open(map, marker)
+        //             });
+                    
+        //         }
+        //     }
+        // };
+
+        // xmlhttp.open("GET", "https://www.coinatmfinder.com/CoimATMs-API.php", true);
+        // xmlhttp.send();
+   
+
+
+    
 
     // Create the search box input from the API and link it to the UI element.
     var input = document.getElementById('pac-input');
