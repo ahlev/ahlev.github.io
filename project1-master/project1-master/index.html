@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!--jQuery-->
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <title>BiTM</title>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-2">
+            <a class="navbar-brand" href="index.html">BiTM</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav float-right ml-auto">
+                    <a class="nav-item nav-link" >Graphs<span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link">Maps</a>
+                    <a class="nav-item nav-link">News</a>
+                    </div>
+                </div>
+        </nav>
+    </div>
+
+
+<div class="container text-center">
+    <div class="row">
+
+        <div id="icons"class="col-md-12">
+            <h3>Cryptocurrencies</h3>
+            <p>Please select cryptocurrencies.</p>
+        </div>
+        
+        <div class="row">
+        <button id="btnGo" type="button" class="btn btn-primary">Go!</button>
+        </div>
+
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+            <div class="col-md-2"></div>
+
+            <div id="graphs" class="col-md-8"></div>
+
+            <div class="col-md-2"></div>
+    </div>
+</div>
+
+<!-- TradingView Widget BEGIN -->
+<div id="tradingView" class="container">
+    <div class="row text-center d-block">
+
+            <div>
+                <div class="tradingview-widget-container">
+
+                    <div id="tv-medium-widget"></div>
+                    <div></a> by TradingView</div>    
+
+                  </div>
+            </div>
+
+    </div>
+</div>
+  <!-- TradingView Widget END -->
+
+
+<!-- Adding a container to hold the map -->
+<div class="container map-container ml-auto">
+    <h4>Nearby Crypto ATMs</h4>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div id="map" class="col-md-8"></div>
+        <div class="col-md-2"></div>
+    </div>
+
+    <!-- Adding a form field that gets pulled into the Google Maps functionality-->
+    <div class="form-group row">
+        <input class="col-md-6" id="pac-input" class="controls" type="text" placeholder="Search Box">
+        <div id="map"></div>
+    </div>
+</div>
+    <!--TradingView Link-->
+    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+    <!-- Link to the Google Maps JS API-->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDYQNnB735VI6qg0uYWNSpCPo1MPvEqJdc&callback=initAutocomplete&libraries=places" type="text/javascript"></script>
+    <script src="assets/javascript/app.js"></script>
+    <!-- <script src="assets/javascript/tradingview.js"></script> -->
+</body>
+</html>
