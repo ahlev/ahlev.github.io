@@ -1,0 +1,17 @@
+{
+  "name": "sqlhmwk",
+  "version": "1.0.0",
+  "description": "Bamazon storefront",
+  "main": "bamazonCustomer.js",
+  "dependencies": {
+    "inquirer": "^6.0.0",
+    "mysql": "^2.16.0",
+    "require": "^2.4.20"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
